@@ -10,9 +10,9 @@ Detects clickbait using two-phase CNN-LSTM Bi-term model. At first phase, hybrid
 # Get started
 
 # Model summary
-![GitHub Logo](/images/logo.png)
-Format: ![Alt Text](url)
-# Performnace analysis
+![Model Summary](/images/modelsummary.png)
+
+# Performance analysis
 
 
 # Glove pre-trained embedding
@@ -26,8 +26,9 @@ BTM is a word co-occurrence bi-term based model as where a bi-term consists of t
 # Corpus
 The dataset was collected from two sources, i.e., Reddit using web-scraping tool Octoparse and Facebook (non-textual data in form of images) using human annotations. The dataset was collected to analyze the distribution of both clickbait and non-clickbait headlines in terms of shares, likes, comments, domains, time, etc (available from 1-DEC-2016 to 21-JUN2019). The non-clickbait headlines were collected from subreddits, which do not allow the clickbaits to creep in. 
 
-The other two corpus used for training the two-phase model are having 12000 and 31000 clickbait and non-clickbait headlines. The statistics of dataset used is
-Corpus        | Total headlines | Clickbait headlines  | Non-clickbait headlines |     
+The other two corpus used for training the two-phase model are having 12000 and 31000 clickbait and non-clickbait headlines. The statistics of dataset used is:
+
+Corpus        | Total headlines | Clickbait headlines  | Non-clickbait headlines |    
 ------------- | -------------   | -------------------- | ----------------------- |   
 Dataset 1     | 32,000          | 15,999               | 16,001                  |
 Dataset 2     | 12,000          | 5,637                | 6,080                   |
