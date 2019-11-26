@@ -1,6 +1,9 @@
 # Clickbait-Detector
 Detects clickbait using two-phase CNN-LSTM Bi-term model. At first phase, hybrid CNN-LSTM model is used to accurately detect the fed short text as clickbait or not. At second phase, Biterm model is combined with the clickbait headline retrieved from the previous phase to classigy the type of clickbait (reasoning, number, reaction, revealing, shocking/unbelievable, hypothesis/guess, questionable, forward referencing)
 
+##  [Check demo](https://clickbait.isitfake.co.in)
+Django based web app hosted on AWS.
+
 # Requirements
 * Python 3.6
 * Keras 2.3.1
@@ -23,16 +26,18 @@ Detects clickbait using two-phase CNN-LSTM Bi-term model. At first phase, hybrid
 
 # Examples for clickbait and non-clickbait
 1. Clickbait headlines
-   1. Textual
+   * Textual
    <img src="/images/clickbait-output.png" width="370px" height="250px"/>
-   1. Non-Textual
 
+   * Non-Textual
+   <img src="/images/clickbait_image_output1.png" width="170px" height="280px"/>
 
 1. Non-Clickbait headlines
-
-   1. Textual
-<img src="/images/not-clickbait-output.png" width="370px" height="250px"/>
-   1. Non-Textual
+   * Textual
+   <img src="/images/not-clickbait-output.png" width="370px" height="250px"/>
+  
+   * Non-Textual
+   <img src="/images/non_clickbait_image_output.png" width="230px" height="250px"/>
 
 
 
@@ -68,4 +73,16 @@ Dataset 3     | 1,800           | 1,200                | 600                    
 
 # Screenshots
 
+<img src="/images/sc_1.png"/>
 
+<img src="/images/sc_2.png"/>
+
+<img src="/images/sc_3.png"/>
+
+<img src="/images/sc_4.png"/>
+
+<img src="/images/sc_5.png"/>
+
+<img src="/images/sc_6.png"/>
+
+<img src="/images/sc_7.png"/>
