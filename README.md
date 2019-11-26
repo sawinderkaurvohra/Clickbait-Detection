@@ -24,14 +24,14 @@ Detects clickbait using two-phase CNN-LSTM Bi-term model. At first phase, hybrid
 # Examples for clickbait and non-clickbait (add images on the basis of prediction)
 1. Clickbait headlines
    1. Textual
-
+   <img src="/images/clickbait-output.png" width="370px" height="250px"/>
    1. Non-Textual
 
 
 1. Non-Clickbait headlines
 
    1. Textual
-
+<img src="/images/not-clickbait-output.png" width="370px" height="250px"/>
    1. Non-Textual
 
 
