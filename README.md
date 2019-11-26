@@ -58,7 +58,7 @@ Elbow method is is designed to find out the appropriate number of clusters in da
 # Corpus
 The dataset was collected from two sources, i.e., Reddit using web-scraping tool Octoparse and Facebook (non-textual data in form of images) using human annotations. The dataset was collected to analyze the distribution of both clickbait and non-clickbait headlines in terms of shares, likes, comments, domains, time, etc (available from 1-DEC-2016 to 21-JUN2019). The non-clickbait headlines were collected from subreddits, which do not allow the clickbaits to creep in. 
 
-The other two corpus used for training the two-phase model are having 12000 and 32000 clickbait and non-clickbait headlines. The statistics of dataset used is:
+The other two corpus used for training the two-phase model are having 12,000 and 32,000 clickbait and non-clickbait headlines. The statistics of dataset used is:
 
 Corpus        | Total headlines | Clickbait headlines  | Non-clickbait headlines |    
 ------------- | -------------   | -------------------- | ----------------------- |   
