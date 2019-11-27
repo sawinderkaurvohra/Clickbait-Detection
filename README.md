@@ -24,7 +24,7 @@ Django based web app hosted on AWS.
    `python manage.py runserver`
 5. Open browser with link http://clickbait.localhost:8000/
 
-# Examples for clickbait and non-clickbait
+# Testing of clickbait and non-clickbait samples on web app
 1. Clickbait headlines
    * Textual
    <img src="/images/clickbait-output.png" width="370px" height="250px"/>
