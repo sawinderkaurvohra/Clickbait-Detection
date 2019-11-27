@@ -58,7 +58,7 @@ BTM is a word co-occurrence bi-term based model as where a bi-term consists of t
 
 # Cluster analysis
 Elbow method is is designed to find out the appropriate number of clusters in dataset. The number of cluster where a bend is seen in the curve (the point where the marginal gain is dropped), that is chosen to get better modelling of data. The value of k (no. of topics) chosen to apply BTM in our experiment was 9.
-![Cluster analysis](/images/cluster.png)
+![Cluster analysis](/images/main-cluster.png)
 
 # Corpus
 The dataset was collected from two sources, i.e., Reddit using web-scraping tool Octoparse and Facebook (non-textual data in form of images) using human annotations. The dataset was collected to analyze the distribution of both clickbait and non-clickbait headlines in terms of shares, likes, comments, domains, time, etc (available from 1-DEC-2016 to 21-JUN2019). The non-clickbait headlines were collected from subreddits, which do not allow the clickbaits to creep in. 
