@@ -4,13 +4,19 @@ Detects clickbait using two-phase CNN-LSTM Bi-term model. At first phase, hybrid
 ##  [Check demo](https://clickbait.isitfake.co.in)
 Django based web app hosted on AWS.
 
+# Table of contents
+1) ![Jupyter Notebook code implementation](notebook/Clickbaitness_Analysis_with_BTM_(CNN+LSTM_model).ipynb)
+2) ![Python code](notebook/code/cnn_lstm+btm.py)
+3) ![Datasets](/dataset/)
+4) ![Model file](/model/model_cnn_lstm.h5)
+
 # Requirements
 * Python 3.6
 * Keras 2.3.1
 * Tensorflow 2.0.0
 * Numpy 1.17.4
-* scipy 1.3.2
-* Django 2.2.7
+* Scipy 1.3.2
+* Django 2.2.7 (web app)
 
 # Get started
 1. Clone this repo
@@ -19,25 +25,27 @@ Django based web app hosted on AWS.
    `pipenv shell`
 3. Install dependencies.
    `pipenv install -r requirements.txt`
-4. Start server
-   `cd web-server`
-   `python manage.py runserver`
-5. Open browser with link http://clickbait.localhost:8000/
+4. Start script
+   `cd code && python3 cnn_lstm+btm.py`
 
 # Testing of clickbait and non-clickbait samples on web app
 1. Clickbait headlines
    * Textual
-   <img src="/images/clickbait-output.png" width="370px" height="250px"/>
+
+   <img src="images/clickbait-output.png" width="370px" height="250px"/>
 
    * Non-Textual
-   <img src="/images/clickbait_image_output1.png" width="170px" height="280px"/>
+
+   <img src="images/clickbait_image_output1.png" width="170px" height="280px"/>
 
 1. Non-Clickbait headlines
    * Textual
-   <img src="/images/not-clickbait-output.png" width="370px" height="250px"/>
+
+   <img src="images/not-clickbait-output.png" width="370px" height="250px"/>
   
    * Non-Textual
-   <img src="/images/non_clickbait_image_output.png" width="230px" height="250px"/>
+
+   <img src="images/non_clickbait_image_output.png" width="230px" height="250px"/>
 
 
 
@@ -73,16 +81,16 @@ Dataset 3     | 1,800           | 1,200                | 600                    
 
 # Screenshots
 
-<img src="/images/sc_1.png"/>
+<img src="images/sc_1.png"/>
 
-<img src="/images/sc_2.png"/>
+<img src="images/sc_2.png"/>
 
-<img src="/images/sc_3.png"/>
+<img src="images/sc_3.png"/>
 
-<img src="/images/sc_4.png"/>
+<img src="images/sc_4.png"/>
 
-<img src="/images/sc_5.png"/>
+<img src="images/sc_5.png"/>
 
-<img src="/images/sc_6.png"/>
+<img src="images/sc_6.png"/>
 
-<img src="/images/sc_7.png"/>
+<img src="images/sc_7.png"/>
