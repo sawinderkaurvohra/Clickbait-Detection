@@ -14,8 +14,8 @@ from google.cloud import vision
 from googleapiclient.discovery import build
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
-from keras.layers import Dense, Input, GlobalMaxPooling1D
-from keras.layers import Conv1D, MaxPooling1D, Embedding
+from keras.layers import Dense, Input, GlobalMaxPooling2D
+from keras.layers import Conv2D, MaxPooling2D, Embedding
 from keras.models import Model
 from sklearn.metrics import roc_auc_score
 from keras.models import model_from_json
@@ -161,16 +161,16 @@ embedding_layer = Embedding(
 
 print('Building model...')
 
-# train a 1D convnet with global maxpooling
+# train a 2D convnet with global maxpooling
 input_ = Input(shape=(MAX_SEQUENCE_LENGTH,))
 x = embedding_layer(input_)
 
-x = Conv1D(128, 3, activation='relu')(x)
-x = MaxPooling1D(3)(x)
-x = Conv1D(128, 3, activation='relu')(x)
-x = MaxPooling1D(3)(x)
-x = Conv1D(128, 3, activation='relu')(x)
-#x = GlobalMaxPooling1D()(x)
+x = Conv2D(128, 3, activation='relu')(x)
+x = MaxPooling2D(3)(x)
+x = Conv2D(128, 3, activation='relu')(x)
+x = MaxPooling2D(3)(x)
+x = Conv2D(128, 3, activation='relu')(x)
+#x = GlobalMaxPooling2D()(x)
 #x = Dense(128, activation='relu')(x)
 x = LSTM(100, dropout=0.2, recurrent_dropout=0.2)(x)
 #x = BatchNormalization(x)
