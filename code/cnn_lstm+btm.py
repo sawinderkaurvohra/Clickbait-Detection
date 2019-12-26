@@ -3,7 +3,7 @@
 
 # # Imports
 
-# In[15]:
+# In[2]:
 
 
 from __future__ import print_function, division
@@ -14,8 +14,8 @@ from google.cloud import vision
 from googleapiclient.discovery import build
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
-from keras.layers import Dense, Input, GlobalMaxPooling2D
-from keras.layers import Conv2D, MaxPooling2D, Embedding
+from keras.layers import Dense, Input, GlobalMaxPooling1D
+from keras.layers import Conv1D, MaxPooling1D, Embedding
 from keras.models import Model
 from sklearn.metrics import roc_auc_score
 from keras.models import model_from_json
@@ -26,6 +26,12 @@ from keras.models import load_model
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 from builtins import range
 from IPython.display import IFrame
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import f1_score
+from sklearn.metrics import cohen_kappa_score
+from sklearn.metrics import roc_auc_score
 
 import os
 import sys
@@ -41,7 +47,7 @@ import pyLDAvis
 
 # # Define variables
 
-# In[2]:
+# In[3]:
 
 
 MAX_VOCAB_SIZE = 20000
@@ -59,14 +65,14 @@ BATCH_SIZE = 128
 EPOCHS = 15
 GLOVE_DIR = "emb"
 
-DATASET = "../dataset/32000.csv"
+DATASET = "../dataset/clickandnonclick_32000.csv"
 
 
 # # CNN + LSTM
 
 # ## load in pre-trained word vectors
 
-# In[3]:
+# In[4]:
 
 
 # load in pre-trained word vectors
@@ -87,12 +93,12 @@ print('Found %s word vectors.' % len(word2vec))
 
 # ## prepare text samples and their labels
 
-# In[4]:
+# In[5]:
 
 
 print('Loading in comments...')
 
-train = pd.read_csv(DATASET)
+train = pd.read_csv(DATASET, encoding = "ISO-8859-1")
 sentences = train["text"].fillna("DUMMY_VALUE").values
 tt="hi"
 possible_labels = ["label"]
@@ -101,7 +107,7 @@ targets = train[possible_labels].values
 
 # ## convert the sentences (strings) into integers
 
-# In[5]:
+# In[6]:
 
 
 tt=np.array(['come on'])
@@ -133,7 +139,7 @@ data2 = pad_sequences(sequences2, maxlen=MAX_SEQUENCE_LENGTH)
 
 # ## prepare embedding matrix
 
-# In[6]:
+# In[8]:
 
 
 print('Filling pre-trained embeddings...')
@@ -161,16 +167,16 @@ embedding_layer = Embedding(
 
 print('Building model...')
 
-# train a 2D convnet with global maxpooling
+# train a 1D convnet with global maxpooling
 input_ = Input(shape=(MAX_SEQUENCE_LENGTH,))
 x = embedding_layer(input_)
 
-x = Conv2D(128, 3, activation='relu')(x)
-x = MaxPooling2D(3)(x)
-x = Conv2D(128, 3, activation='relu')(x)
-x = MaxPooling2D(3)(x)
-x = Conv2D(128, 3, activation='relu')(x)
-#x = GlobalMaxPooling2D()(x)
+x = Conv1D(128, 3, activation='relu')(x)
+x = MaxPooling1D(3)(x)
+x = Conv1D(128, 3, activation='relu')(x)
+x = MaxPooling1D(3)(x)
+x = Conv1D(128, 3, activation='relu')(x)
+#x = GlobalMaxPooling1D()(x)
 #x = Dense(128, activation='relu')(x)
 x = LSTM(100, dropout=0.2, recurrent_dropout=0.2)(x)
 #x = BatchNormalization(x)
@@ -201,9 +207,34 @@ r = model.fit(
 )
 
 
+# ## Model Metrics
+
+# In[9]:
+
+
+# predict probabilities for test set
+test_samples = int(len(data)-(len(data)*VALIDATION_SPLIT))
+yhat_probs = model.predict(data[test_samples:], verbose=0)
+predicted = np.argmax(yhat_probs, axis=1)
+from sklearn.metrics import classification_report
+report = classification_report(np.argmax(targets[test_samples:], axis=1), predicted)
+
+
+# In[46]:
+
+
+predicted
+
+
 # ## Plot Graph
 
-# In[7]:
+# In[40]:
+
+
+data[(int(32000 - (32000 *0.2))):]
+
+
+# In[14]:
 
 
 plt.plot(r.history['loss'], label='loss')
@@ -220,11 +251,11 @@ plt.show()
 
 # plot the mean AUC over each label
 p = model.predict(data)
-#aucs = []
-#for j in range(6):
- #   auc = roc_auc_score(targets[:,j], p[:,j])
-  #  aucs.append(auc)
-#print(np.mean(aucs))
+aucs = []
+for j in range(6):
+    auc = roc_auc_score(targets[:,j], p[:,j])
+    aucs.append(auc)
+print(np.mean(aucs))
 
 
 # ## Save Model
@@ -316,10 +347,10 @@ df.to_csv('non_clickbait.csv')
 
 # # Find cluster occurence using BTM
 
-# In[24]:
+# In[30]:
 
 
-texts = list(pd.read_csv('../dataset/Click_&_non_click_1800.csv', encoding = 'ISO-8859-1')['text'])[200:700]
+texts = list(pd.read_csv('../dataset/clickandnonclick_32000.csv', encoding = 'ISO-8859-1')['text'])[1200:1700]
 # vectorize texts
 vec = CountVectorizer(stop_words='english')
 X = vec.fit_transform(texts).toarray()
@@ -341,7 +372,7 @@ vis = pyLDAvis.prepare(btm.phi_wz.T, topics, np.count_nonzero(X, axis=1), vocab,
 pyLDAvis.save_html(vis, '../assets/BTM.html')
 
 print("\n\n Topic coherence ..")
-topic_summuary(btm.phi_wz.T, X, vocab, 10)
+topic_summuary(btm.phi_wz.T, X, vocab, 20)
 
 print("\n\n Texts & Topics ..")
 for i in range(len(texts)):
