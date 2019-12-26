@@ -1,14 +1,14 @@
 # Clickbait-Detector
-Detects clickbait using two-phase CNN-LSTM Bi-term model. At first phase, hybrid CNN-LSTM model is used to accurately detect the fed short text as clickbait or not. At second phase, Biterm model is combined with the clickbait headline retrieved from the previous phase to classigy the type of clickbait (reasoning, number, reaction, revealing, shocking/unbelievable, hypothesis/guess, questionable, forward referencing)
+Detects clickbait using two-phase CNN-LSTM Bi-term model. At first phase, hybrid CNN-LSTM model is used to accurately detect the fed short text as clickbait or not. At second phase, Biterm model is combined with the clickbait headline retrieved from the previous phase to classify the type of clickbait (reasoning, number, reaction, revealing, shocking/unbelievable, hypothesis/guess, questionable, forward referencing).
 
 ##  [Check demo](https://clickbait.isitfake.co.in)
 Django based web app hosted on AWS.
 
 # Table of contents
-1) ![Jupyter Notebook code implementation](notebook/Clickbaitness_Analysis_with_BTM_(CNN+LSTM_model).ipynb)
-2) ![Python code](notebook/code/cnn_lstm+btm.py)
-3) ![Datasets](/dataset/)
-4) ![Model file](/model/model_cnn_lstm.h5)
+1) [Jupyter Notebook code implementation](/notebook/Clickbaitness_Analysis_with_BTM_(CNN+LSTM_model).ipynb)
+2) [Python code](notebook/code/cnn_lstm+btm.py)
+3) [Datasets](/dataset/)
+4) [Model file](/model/model_cnn_lstm.h5)
 
 # Requirements
 * Python 3.6
@@ -58,7 +58,7 @@ Django based web app hosted on AWS.
 
 
 # Glove pre-trained embedding
-The vector size chosen for word embeddings is 100-dimensional in our experiment. Python library named as glove python is used to implement Glove embeddings.
+The vector size chosen for word embeddings is 100-dimensional in our experiment. Python library named as glove python is used to implement Glove embeddings. Glove embedding used in this research has [6B tokens, 400K vocab, 100d vectors](http://nlp.stanford.edu/data/glove.6B.zip)
 
 
 # Biterm Topic Model (BTM)
