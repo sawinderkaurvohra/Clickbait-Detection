@@ -11,7 +11,7 @@ Django based web app hosted on AWS.
 4) [Model file](/model/model_cnn_lstm.h5)
 
 # Requirements
-* Python 3.6
+* Python 3.6.3
 * Keras 2.3.1
 * Tensorflow 2.0.0
 * Numpy 1.17.4
@@ -54,18 +54,19 @@ Django based web app hosted on AWS.
 
 # Performance analysis
    1. OCR performance: Google Cloud Vision tool was used to extract headlines from the non-textual (in form of images) posts of our collected corpus. A post-processing step was performed on the tool to improve the accuracy of the API. It was observed that the accuracy improved by 1.34%. Operations used for pre-processing were converting image to grayscale, noise removal, extraction of headlines using Gooogle API and auto-correction of the textual data retrieved from the image.
-   1. Classification performance: Glove pre-trained vectors when embedded with hybrid CNN-LSTM model gave best accuracy on all the three collected corpus. The model achieved an accuracy of 95.8%, 89.44%, 94.21% with 0.99, 0.94, 0.98 ROC-AUC values for Dataset 1, Dataset 2 and ground dataset, respectively.
+   1. Classification performance: Glove pre-trained vectors when embedded with hybrid CNN-LSTM model gave best accuracy on all the three collected corpus. The model achieved an accuracy of 95.8%, 89.44%, 94.21% with 0.99, 0.94, 0.98 ROC-AUC values for Dataset 1, Dataset 2 and Ground Dataset, respectively.
 
 
 # Glove pre-trained embedding
-The vector size chosen for word embeddings is 100-dimensional in our experiment. Python library named as glove python is used to implement Glove embeddings. Glove embedding used in this research has [6B tokens, 400K vocab, 100d vectors](http://nlp.stanford.edu/data/glove.6B.zip)
+The vector size chosen for word embeddings is 100-dimensional in our experiment. Python library named as glove python is used to implement Glove embeddings. Glove embedding used in this research has 6B tokens, 400K vocab, 100d vectors.
+[Download embeddings](http://nlp.stanford.edu/data/glove.6B.zip)
 
 
 # Biterm Topic Model (BTM)
 BTM is a word co-occurrence bi-term based model as where a bi-term consists of two words co-occurrence in the same headline. It is a type of generative model which generates a bi-term by making a two word pattern from the same topic.
 
 # Cluster analysis
-Elbow method is is designed to find out the appropriate number of clusters in dataset. The number of cluster where a bend is seen in the curve (the point where the marginal gain is dropped), that is chosen to get better modelling of data. The value of k (no. of topics) chosen to apply BTM in our experiment was 9.
+Elbow method is is designed to find out the appropriate number of clusters in dataset. The number of cluster where a bend is seen in the curve (the point where the marginal gain is dropped), that is chosen to get better modelling of data. The value of t (no. of topics) chosen to apply BTM in our experiment was 9.
 ![Cluster analysis](/images/main-cluster.png)
 
 # Corpus
@@ -77,7 +78,7 @@ Corpus        | Total headlines | Clickbait headlines  | Non-clickbait headlines
 ------------- | -------------   | -------------------- | ----------------------- |   
 Dataset 1     | 32,000          | 15,999               | 16,001                  |
 Dataset 2     | 12,000          | 5,637                | 6,080                   |
-Dataset 3     | 1,800           | 1,200                | 600                     |
+Ground Dataset     | 1,800           | 1,200                | 600                     |
 
 # Screenshots
 
