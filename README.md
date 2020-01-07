@@ -36,7 +36,7 @@ Django based web app hosted on AWS.
 
    * Non-Textual
 
-   <img src="images/clickbait_image_output1.png" width="170px" height="280px"/>
+   <img src="images/clickbait_image_output1.png" width="370px" height="680px"/>
 
 1. Non-Clickbait headlines
    * Textual
@@ -45,7 +45,7 @@ Django based web app hosted on AWS.
   
    * Non-Textual
 
-   <img src="images/non_clickbait_image_output.png" width="230px" height="250px"/>
+   <img src="images/non_clickbait_image_output.png" width="370px" height="500px"/>
 
 
 
