@@ -82,16 +82,21 @@ Ground Dataset     | 1,800           | 1,200                | 600               
 
 # Screenshots
 
-<img src="images/dashboard.png"/>
+* Dashboard
+   <img src="images/dashboard.png"/>
 
-<img src="images/sc_2.png"/>
+* Text Input Form
+   <img src="images/sc_2.png"/>
 
-<img src="images/sc_3.png"/>
+* Output of Text Input
+   <img src="images/sc_3.png"/>
 
-<img src="images/sc_4.png"/>
+* Graph Analysis of Input Text
+   <img src="images/sc_4.png"/>
 
-<img src="images/sc_5.png"/>
-
-<img src="images/sc_6.png"/>
-
-<img src="images/sc_7.png"/>
+* Image Input Form
+   <img src="images/sc_5.png"/>
+  
+* Output of Image Input
+   <img src="images/sc_6.png"/>
+   <img src="images/sc_7.png"/>
