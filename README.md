@@ -82,7 +82,7 @@ Ground Dataset     | 1,800           | 1,200                | 600               
 
 # Screenshots
 
-<img src="images/sc_1.png"/>
+<img src="images/dashboard.png"/>
 
 <img src="images/sc_2.png"/>
 
