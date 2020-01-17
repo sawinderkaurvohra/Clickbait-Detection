@@ -6,7 +6,7 @@ Django based web app hosted on AWS.
 
 # Table of contents
 1) [Jupyter Notebook code implementation](/notebook/Clickbaitness_Analysis_with_BTM_(CNN+LSTM_model).ipynb)
-2) [Python code](notebook/code/cnn_lstm+btm.py)
+2) [Python code](/code/cnn_lstm+btm.py)
 3) [Datasets](/dataset/)
 4) [Model file](/model/model_cnn_lstm.h5)
 
