@@ -3,7 +3,7 @@
 
 # # Imports
 
-# In[2]:
+# In[16]:
 
 
 from __future__ import print_function, division
@@ -209,10 +209,10 @@ r = model.fit(
 
 # ## Model Metrics
 
-# In[14]:
+# In[18]:
 
 
-# predict probabilities for test set
+# # predict probabilities for test set
 test_samples = int(len(data)-(len(data)*VALIDATION_SPLIT))
 yhat_probs = model.predict(data[test_samples:], verbose=0)
 predicted = np.argmax(yhat_probs, axis=1)
@@ -220,10 +220,10 @@ predicted = np.argmax(yhat_probs, axis=1)
 # report = classification_report(np.argmax(targets[test_samples:], axis=1), predicted)
 # print(report)
 
-print("Precision Score: {0:.2f}".format(f1_score(np.argmax(targets[test_samples:], axis=1), predicted)))
-print("Recall Score: {0:.2f}".format(f1_score(np.argmax(targets[test_samples:], axis=1), predicted)))
-print("F1 Score: {0:.2f}".format(f1_score(np.argmax(targets[test_samples:], axis=1), predicted)))
-print("Roc Aoc Score: {0:.2f}".format(roc_auc_score(np.argmax(targets[test_samples:], axis=1), predicted)))
+print("Precision Score: {0:.4f}".format(precision_score(np.argmax(targets[test_samples:], axis=1), predicted)))
+print("Recall Score: {0:.4f}".format(recall_score(np.argmax(targets[test_samples:], axis=1), predicted)))
+print("F1 Score: {0:.4f}".format(f1_score(np.argmax(targets[test_samples:], axis=1), predicted)))
+print("ROC-AUC Score: {}".format(roc_auc_score(np.argmax(targets[test_samples:], axis=1), predicted)))
 
 
 # In[46]:
